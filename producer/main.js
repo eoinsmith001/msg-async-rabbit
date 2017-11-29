@@ -37,6 +37,7 @@ function faultTolerantConnect(cb) {
 var topics = [ 
   'user.created.foo',
   'user.created.bar',
+  'user.created',
 ];
 var ftc = p(faultTolerantConnect);
 ftc()
