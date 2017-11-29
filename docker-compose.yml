@@ -1,0 +1,35 @@
+version: '2.3'
+services:
+  rabbit:
+    image: rabbitmq 
+    ports: 
+      - '5672:5672'
+      - '15672:15672'
+  producer:
+    image: producer:latest
+    restart: always
+    environment:
+      RABBIT_SERVER: rabbit
+    depends_on:
+      - rabbit
+  consumerfoo:
+    image: consumer-foo:latest
+    restart: always
+    environment:
+      RABBIT_SERVER: rabbit
+    depends_on:
+      - rabbit
+  consumerbar:
+    image: consumer-bar:latest
+    restart: always
+    environment:
+      RABBIT_SERVER: rabbit
+    depends_on:
+      - rabbit
+  consumerall:
+    image: consumer-all:latest
+    restart: always
+    environment:
+      RABBIT_SERVER: rabbit
+    depends_on:
+      - rabbit
