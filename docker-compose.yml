@@ -15,6 +15,7 @@ services:
   consumerfoo:
     image: consumer-foo:latest
     restart: always
+    scale: 3
     environment:
       RABBIT_SERVER: rabbit
     depends_on:
@@ -22,6 +23,7 @@ services:
   consumerbar:
     image: consumer-bar:latest
     restart: always
+    scale: 3
     environment:
       RABBIT_SERVER: rabbit
     depends_on:
