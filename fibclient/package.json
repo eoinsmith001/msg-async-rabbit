@@ -1,5 +1,5 @@
 {
-  "name": "fibsvc",
+  "name": "fibclient",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,8 +12,7 @@
   "dependencies": {
     "amqplib": "^0.5.2",
     "bluebird": "^3.5.1",
-    "lodash": "^4.17.4",
-    "moment": "^2.19.3",
-    "retry": "^0.10.1"
+    "retry": "^0.10.1",
+    "uuid": "^3.1.0"
   }
 }

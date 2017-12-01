@@ -5,33 +5,47 @@ services:
     ports: 
       - '5672:5672'
       - '15672:15672'
-  producer:
-    image: producer:latest
+  fibsvc:
+    image: fibsvc:latest
     restart: always
     environment:
       RABBIT_SERVER: rabbit
     depends_on:
       - rabbit
-  consumerfoo:
-    image: consumer-foo:latest
-    restart: always
-    scale: 3
-    environment:
-      RABBIT_SERVER: rabbit
-    depends_on:
-      - rabbit
-  consumerbar:
-    image: consumer-bar:latest
-    restart: always
-    scale: 3
-    environment:
-      RABBIT_SERVER: rabbit
-    depends_on:
-      - rabbit
-  consumerall:
-    image: consumer-all:latest
+  fibclient:
+    image: fibclient:latest
     restart: always
     environment:
       RABBIT_SERVER: rabbit
     depends_on:
       - rabbit
+#   producer:
+#     image: producer:latest
+#     restart: always
+#     environment:
+#       RABBIT_SERVER: rabbit
+#     depends_on:
+#       - rabbit
+#   consumerfoo:
+#     image: consumer-foo:latest
+#     restart: always
+#     scale: 3
+#     environment:
+#       RABBIT_SERVER: rabbit
+#     depends_on:
+#       - rabbit
+#   consumerbar:
+#     image: consumer-bar:latest
+#     restart: always
+#     scale: 3
+#     environment:
+#       RABBIT_SERVER: rabbit
+#     depends_on:
+#       - rabbit
+#   consumerall:
+#     image: consumer-all:latest
+#     restart: always
+#     environment:
+#       RABBIT_SERVER: rabbit
+#     depends_on:
+#       - rabbit

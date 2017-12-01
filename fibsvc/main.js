@@ -9,7 +9,7 @@ var rabbitConnection = process.env.RABBIT_SERVER || 'localhost';
 var rabbitUrl = 'amqp://' + rabbitConnection;
 console.log('attempt connect: ', rabbitUrl);
  
-var amqp = require('amqplib/callback_api');
+var amqp = require('amqplib');
 var open = amqp.connect(rabbitUrl);
  
 function faultTolerantConnect(cb) {
